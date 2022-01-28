@@ -1,8 +1,11 @@
-
 const timeLeft = document.getElementById("time-left");
 const newDate = document.getElementById("date");
 
-let nextYear = new Date("01/01/2022"); // mm/dd/yyyy
+var nextYear = new Date().getFullYear() + 1;
+var newYearDay = "01/01/";
+newYearDay += nextYear;
+
+let nextDate= new Date(newYearDay); 
 
 const second = 1000;
 const minute = second * 60;
@@ -12,8 +15,7 @@ let timerId;
 
 function countDown() {
   const today = new Date();
-  const timeSpan = nextYear - today;
-  // console.log(timeSpan)
+  const timeSpan = nextDate - today;
 
   if (timeSpan <= -day) {
     timeLeft.innerHTML = "Hope you had a nice Year!";
